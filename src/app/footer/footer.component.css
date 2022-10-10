@@ -1,0 +1,12 @@
+.footer{
+    position:absolute;
+    bottom:0;
+    width:100%;
+    height:45px;
+    background-color: rgb(65, 61, 61);
+    /* justify-content: center; */
+    /* display: flex; */
+}
+/* .footer div span{
+    justify-content: center;
+} */
