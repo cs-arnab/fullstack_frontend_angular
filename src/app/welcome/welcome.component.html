@@ -1,8 +1,11 @@
-<div>
+<div class="container">
     <h1>welcome</h1>
     <div>Manage your todos <a routerLink="/todos">here</a></div>
 </div>
-<div>
-    Welcome Message : 
+<div class="container">
+    Welcome Message : {{welcomedata}}<br>
     <button (click)="getMessage()" class="btn btn-success">click</button>
+</div>
+<div class="container" *ngIf="welcomedata">
+    Your Message here : {{welcomedata}}<br>
 </div>

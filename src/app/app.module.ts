@@ -14,7 +14,9 @@ import { MenuComponent } from './menu/menu.component';
 import { FooterComponent } from './footer/footer.component';
 import { LogoutComponent } from './logout/logout.component';
 import { ErrorPageComponent } from './error-page/error-page.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { TodoComponent } from './todo/todo.component';
+import { HttpIntercepterBasicAuthService } from './service/http/http-intercepter-basic-auth.service';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,8 @@ import { HttpClientModule } from '@angular/common/http';
     MenuComponent,
     FooterComponent,
     LogoutComponent,
-    ErrorPageComponent
+    ErrorPageComponent,
+    TodoComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +38,9 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: HttpIntercepterBasicAuthService, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
